@@ -22,11 +22,12 @@ class CategoryItem extends StatelessWidget {
       ),
       onTap: (){
         print("Tapped to catogery item: ${this.category.content}");
-        Navigator.of(context).push(
+        /*Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (contex) => FoodsPage(category: this.category,)
+            builder: (context) => FoodsPage(category: this.category,)
           )
-        );
+        );*/
+        Navigator.pushNamed(context, '/FoodsPage',arguments: {'category': category});
       },
     );
   }

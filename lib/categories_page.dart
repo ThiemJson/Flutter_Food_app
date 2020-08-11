@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_food_app/category_item.dart';
+import 'package:flutter_food_app/foods_page.dart';
 import 'fake_date.dart';
 class CategoriesPage extends StatelessWidget {
   @override
@@ -7,6 +8,10 @@ class CategoriesPage extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Category',
+      initialRoute: '/', //this is root
+      routes: {
+        '/FoodsPage':(context)=> FoodsPage(),
+      },
       theme: ThemeData(
         primaryColor: Color(0xFFC41A3B),
         primaryColorLight: Color(0xFFFBE0E6),
@@ -44,7 +49,6 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return GridView(
       padding: EdgeInsets.all(12),
-
       children: FAKE_CATEGORIES.map((eachCategory) =>CategoryItem(category: eachCategory)).toList(),
       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: 300,
