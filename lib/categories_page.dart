@@ -11,9 +11,24 @@ class CategoriesPage extends StatelessWidget {
         primaryColor: Color(0xFFC41A3B),
         primaryColorLight: Color(0xFFFBE0E6),
         accentColor: Color(0xFF1B1F32),
+        textTheme: ThemeData.light ().textTheme.copyWith(
+          subtitle1: TextStyle(
+            fontSize: 25,
+            fontFamily: 'Sriracha'
+          ),
+          subtitle2: TextStyle(
+            fontSize: 25,
+            fontFamily: 'Itim'
+          )
+        ),
       ),
       home: Scaffold(
-        body: MyApp(),
+        appBar: AppBar(
+          centerTitle: true,
+          backgroundColor: Colors.green,
+          title: Text('Foods Category', style: TextStyle(fontSize: 25, color: Colors.white, fontFamily:'Itim' ),),
+        ),
+        body: SafeArea(child: MyApp()),
       ),
     );
   }
@@ -28,12 +43,14 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return GridView(
+      padding: EdgeInsets.all(12),
+
       children: FAKE_CATEGORIES.map((eachCategory) =>CategoryItem(category: eachCategory)).toList(),
       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: 300,
           childAspectRatio: 3/2,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10
+          crossAxisSpacing: 12,
+          mainAxisSpacing: 12
       ),
     );
   }
